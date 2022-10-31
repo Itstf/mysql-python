@@ -1,9 +1,15 @@
-import mysql.connector
 import time
 import os
-from produtos.exibir_produtos import exibir_produtos
+
+from pedidos.exibir_pedidos import exibir_pedidos
+
+from produtos.editar_produtos import editar_produtos
 from produtos.cadastrar_produtos import cadastrar_produtos
+from produtos.excluir_produto import excluir_produto
+from produtos.exibir_produtos import exibir_produtos
+
 from conectar_bd import connect_bd
+
 
 def menu():    
     os.system('cls') # limpar terminal
@@ -38,5 +44,22 @@ def menu():
             time.sleep(1)
             os.system('cls')
             editar_produtos()
+            
+        if escolha_produtos == 4:
+            time.sleep(1)
+            os.system('cls')
+            excluir_produto()
+    
+    if home_menu == 2:
+        time.sleep(1)
+        os.system('cls')
+        escolha_pedidos = int(input(
+            '\n[1] Pedidos Existentes'
+            '\n[2] Criar pedido'
+            '\n[3] Add produto ao pedido'
+            '\n[4] Remover produto de um pedido'
+        ))
+        if escolha_pedidos == 1:
+            exibir_pedidos()
 
 menu()

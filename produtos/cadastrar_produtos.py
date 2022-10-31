@@ -1,4 +1,5 @@
 import mysql.connector
+from conectar_bd import connect_bd
 
 def cadastrar_produtos():
     # conectar bd
@@ -10,6 +11,7 @@ def cadastrar_produtos():
         database='thaiza_favarelli'
     )
     cursor = cnx.cursor()
+
     
     idproduto = str(input('id Produto: '))
     print(idproduto)
@@ -32,5 +34,6 @@ def cadastrar_produtos():
     )
     dados = (f'{idproduto}', f'{nomeproduto}', f'{descproduto}', f'{qtdproduto}', f'{precoproduto}')
     cursor.execute(inserir, dados)
-    
     cnx.commit() # salvar 
+    
+    
